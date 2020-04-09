@@ -7,6 +7,14 @@ Can I bring the consistency of Python functions, into the world of PHP?
 
 ~~and getting lengths :(~~
 
+## Remarks
+1. `.`s in library namespaces are replaced with double underscores `__`.
+
+1. Datatype specific operations starts with `_<datatype>__<operation>`. 
+
+First argument should be the affected object, then python bindings.
+
+
 
 ## Libraries included
 - [x] Inbuilt (80%, excluding some already there such as `chr()` and some incompatable datatypes such as tuples)
