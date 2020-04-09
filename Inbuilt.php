@@ -64,13 +64,7 @@ function enumerate($iterable, $start = 0) {
 }
 
 function filter($function, $iterable) {
-	$result = array();
-	foreach ($iterable as $item) {
-		if (call_user_func($function, $item)) {
-			$result[] = $item;
-		}
-	}
-	return $result;
+	return array_filter($iterable, $function);
 }
 
 function _float($x) {
@@ -114,6 +108,14 @@ function _list($iterable) {
 		$result[] = $item;
 	}
 	return $result;
+}
+
+function map($function, $iterable) {
+	return array_map($function, $iterable);
+}
+
+function reduce($function, $iterable) {
+	return array_reduce($iterable, $function);
 }
 
 function sorted($iterable, $sort_flags = SORT_REGULAR, $reverse = false) {
