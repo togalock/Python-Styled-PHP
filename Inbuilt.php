@@ -37,6 +37,17 @@ function delattr($object, $name) {
 	}
 }
 
+function _dict($iterable) {
+	$result = array();
+	foreach ($iterable as $item) {
+		if (sizeof($item) !== 2) {
+			return null;
+		}
+	$result[current($item)] = next($item);
+	}
+	return $result;
+}
+
 function divmod($a, $b) {
 	assert(is_numeric($a, $b));
 	return array(intdiv($a, $b), $a % $b);
@@ -131,7 +142,7 @@ function zip($iterables) {
 	$length = array(); 
 	
 	foreach ($iterables as &$iterable) {
-		$length[] = len($iterable);
+		$length[] = sizeof($iterable);
 		array_unshift($iterable, null);
 	}
 	$length = min($length);
